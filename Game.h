@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include "LevelLoader.h"
 
 /// <summary>
 /// @brief Main class for the SFML Playground project.
@@ -12,6 +13,7 @@ class Game
 public:
 	Game();	
 	void run();
+
 protected:	
 	void update(double dt);
 	void render();
@@ -21,8 +23,15 @@ protected:
 	// main window
 	sf::RenderWindow m_window;
 
-	//Sprite
 	sf::Sprite m_Sprite;
 	sf::Texture m_Texture;
+
+	sf::Sprite m_BackgroundSprite;
+	sf::Texture m_BackgroundTexture;
+
+	LevelData m_Level;
+
+	//Vector is like a list (c#)
+	std::vector<sf::Sprite> m_sprites;
 	
 };

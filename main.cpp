@@ -15,6 +15,11 @@
 #pragma comment(lib,"glu32.lib") 
 
 
+//YAML add-on------------------------
+#pragma comment(lib,"libyaml-cppmdd")
+//YAML add-on------------------------
+
+
 #include "Game.h"
 
 /// <summary>
