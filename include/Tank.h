@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <Thor/Math.hpp>
+#include "KeyHandler.h"
 
 /// <summary>
 /// @brief A simple tank controller.
@@ -10,14 +11,16 @@
 class Tank
 {
 public:	
-	Tank(sf::Texture const & texture, sf::Vector2f const & pos);
+	Tank(sf::Texture const & texture, sf::Vector2f const & pos, KeyHandler & keyHandlerIn);
 	void update(double dt);
+	void HandleKeyInput();
 	void render(sf::RenderWindow & window);
 	void IncreaseSpeed();
 	void DecreaseSpeed();
 	void IncreaseRotation();
 	void DecreaseRotation();
 
+	//Personal Additions
 	void IncreaseTurretAngle();
 	void DecreaseTurretAngle();
 
@@ -33,5 +36,6 @@ private:
 	double static const DEG_TO_RAD;
 
 	int turretAddOn = 0;
+	KeyHandler & m_keyHandler;
 		
 };

@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include "LevelLoader.h"
 #include "Tank.h"
+#include "KeyHandler.h"
 
 /// <summary>
 /// @brief Main class for the SFML Playground project.
@@ -35,6 +36,11 @@ protected:
 	//Vector is like a list (c#)
 	std::vector<sf::Sprite> m_sprites;
 	
+	//KeyHandler Object
+	KeyHandler m_KeyHandler = KeyHandler();
+
 	//Unique Pointer to Tank
 	std::unique_ptr<Tank> m_Tank;
+
+
 };

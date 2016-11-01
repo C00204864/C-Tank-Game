@@ -3,19 +3,18 @@
 
 double const Tank::DEG_TO_RAD = thor::Pi / 180.0f;
 
-Tank::Tank(sf::Texture const & texture, sf::Vector2f const & pos)
-: m_texture(texture)
+Tank::Tank(sf::Texture const & texture, sf::Vector2f const & pos, KeyHandler & keyHandlerIn)
+: m_texture(texture), m_keyHandler(keyHandlerIn)
 {
 	initSprites(pos);
 }
 
 void Tank::update(double dt)
 {	
-	if (true)
-	{
-		m_tankBase.setPosition(m_tankBase.getPosition().x + (std::cos(m_rotation * DEG_TO_RAD) * m_speed), m_tankBase.getPosition().y + (std::sin(m_rotation * DEG_TO_RAD) * m_speed));
+	HandleKeyInput();
+		m_tankBase.setPosition(m_tankBase.getPosition().x + (std::cos(m_rotation * DEG_TO_RAD) * m_speed * dt / 100), m_tankBase.getPosition().y + (std::sin(m_rotation * DEG_TO_RAD) * m_speed * dt / 100));
 		m_tankBase.setRotation(m_rotation);
-		m_turret.setPosition(m_tankBase.getPosition().x + (std::cos(m_rotation * DEG_TO_RAD) * m_speed), m_tankBase.getPosition().y + (std::sin(m_rotation * DEG_TO_RAD) * m_speed));
+		m_turret.setPosition(m_tankBase.getPosition());		
 		int turretRotation = m_rotation + turretAddOn;
 		if (turretRotation >= 360)
 		{
@@ -26,9 +25,34 @@ void Tank::update(double dt)
 			turretRotation += 360;
 		}
 		m_turret.setRotation(turretRotation);
+}
+
+void Tank::HandleKeyInput()
+{
+	if (m_keyHandler.isPressed(sf::Keyboard::Up))
+	{
+		IncreaseSpeed();
 	}
-	std::cout << m_rotation;
-	std::system("cls");
+	else if (m_keyHandler.isPressed(sf::Keyboard::Down))
+	{
+		DecreaseSpeed();
+	}
+	if (m_keyHandler.isPressed(sf::Keyboard::Left))
+	{
+		DecreaseRotation();
+	}
+	else if (m_keyHandler.isPressed(sf::Keyboard::Right))
+	{
+		IncreaseRotation();
+	}
+	if (m_keyHandler.isPressed(sf::Keyboard::A))
+	{
+		DecreaseTurretAngle();
+	}
+	else if (m_keyHandler.isPressed(sf::Keyboard::D))
+	{
+		IncreaseTurretAngle();
+	}
 }
 
 void Tank::render(sf::RenderWindow & window) 

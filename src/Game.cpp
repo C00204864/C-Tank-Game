@@ -19,6 +19,8 @@ static double const MS_PER_UPDATE = 10.0;
 Game::Game()
 : m_window(sf::VideoMode(1440, 900, 32), "SFML Playground", sf::Style::Default)
 {	
+	m_window.setVerticalSyncEnabled(true);
+
 	//Load Level
 	int currentLevel = 1;
 	if (!LevelLoader::load(currentLevel, m_Level))
@@ -33,9 +35,9 @@ Game::Game()
 		throw std::exception(s.c_str());
 	}
 
-
-	m_Tank.reset(new Tank(m_Texture, m_Level.m_tank.m_position));
 	
+	m_Tank.reset(new Tank(m_Texture, m_Level.m_tank.m_position, m_KeyHandler));
+
 	//Background Sprite
 	if (!m_BackgroundTexture.loadFromFile(m_Level.m_background.m_fileName))
 	{
@@ -100,7 +102,7 @@ void Game::processEvents()
 		}
 		processGameEvents(event);
 	}
-	m_Tank->update(MS_PER_UPDATE);
+	
 }
 
 /// <summary>
@@ -112,30 +114,15 @@ void Game::processEvents()
 void Game::processGameEvents(sf::Event& event)
 {
 	// check if the event is a a mouse button release
-	if (sf::Event::KeyPressed == event.type)
+	if (sf::Event::KeyPressed == event.type || sf::Event::KeyReleased == event.type)
 	{
-		switch (event.key.code)
+		switch (event.type)
 		{
-		case sf::Keyboard::Escape:
-			m_window.close();
+		case sf::Event::KeyPressed:
+			m_KeyHandler.updateKey(event.key.code, true);
 			break;
-		case sf::Keyboard::Up:
-			m_Tank->IncreaseSpeed();
-			break;
-		case sf::Keyboard::Down:
-			m_Tank->DecreaseSpeed();
-			break;
-		case sf::Keyboard::Left:
-			m_Tank->DecreaseRotation();
-			break;
-		case sf::Keyboard::Right:
-			m_Tank->IncreaseRotation();
-			break;
-		case sf::Keyboard::A:
-			m_Tank->DecreaseTurretAngle();
-			break;
-		case sf::Keyboard::D:
-			m_Tank->IncreaseTurretAngle();
+		case sf::Event::KeyReleased:
+			m_KeyHandler.updateKey(event.key.code, false);
 			break;
 		default:
 			break;
@@ -143,13 +130,15 @@ void Game::processGameEvents(sf::Event& event)
 	}
 }
 
+
+
 /// <summary>
 /// Method to handle all game updates
 /// </summary>
 /// <param name="time">update delta time</param>
 void Game::update(double dt)
 {
-	
+	m_Tank->update(MS_PER_UPDATE);
 }
 
 
