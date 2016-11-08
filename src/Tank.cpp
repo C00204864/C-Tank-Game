@@ -131,3 +131,8 @@ void Tank::DecreaseTurretAngle()
 		turretAddOn = 0;
 	}
 }
+
+sf::Sprite Tank::GetTurretSprite()
+{
+	return m_tankBase;
+}

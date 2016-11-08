@@ -19,6 +19,7 @@ public:
 	void DecreaseSpeed();
 	void IncreaseRotation();
 	void DecreaseRotation();
+	sf::Sprite GetTurretSprite();
 
 	//Personal Additions
 	void IncreaseTurretAngle();

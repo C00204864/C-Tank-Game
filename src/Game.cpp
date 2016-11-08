@@ -54,6 +54,7 @@ Game::Game()
 		tempSprite.rotate(obstacle.m_rotation);
 		m_sprites.push_back(tempSprite);
 	}
+	GenerateWalls();
 }
 
 /// <summary>
@@ -138,7 +139,11 @@ void Game::processGameEvents(sf::Event& event)
 /// <param name="time">update delta time</param>
 void Game::update(double dt)
 {
-	m_Tank->update(MS_PER_UPDATE);
+	//m_Tank->update(MS_PER_UPDATE);
+	if (CheckTankWallCollision() == false)
+	{
+		m_Tank->update(MS_PER_UPDATE);
+	}
 }
 
 
@@ -152,11 +157,41 @@ void Game::render()
 	m_window.draw(m_BackgroundSprite);
 	m_window.draw(m_Sprite);
 	m_Tank->render(m_window);
-	for (auto &sprite : m_sprites)
+	for (auto &sprite : m_wallSprites)
 	{
-		m_window.draw(sprite);
+		m_window.draw(*sprite);
 	}
 	m_window.display();
 }
 
+/// <summary>
+/// @Generates Walls for the game
+/// 
+/// </summary>
+void Game::GenerateWalls()
+{
+	sf::IntRect wallRect(2, 129, 33, 23);
+	//Create the walls
+	for (ObstacleData const &obstacle : m_Level.m_obstacles)
+	{
+		std::unique_ptr<sf::Sprite> sprite(new sf::Sprite());
+		sprite->setTexture(m_Texture);
+		sprite->setTextureRect(wallRect);
+		sprite->setOrigin(wallRect.width / 2.0, wallRect.height / 2.0);
+		sprite->setPosition(obstacle.m_position);
+		sprite->setRotation(obstacle.m_rotation);
+		m_wallSprites.push_back(std::move(sprite));
+	}
+}
 
+bool Game::CheckTankWallCollision()
+{
+	for (std::unique_ptr<sf::Sprite> const & sprite : m_wallSprites)
+	{
+		if (CollisionDetector::collision(m_Tank->GetTurretSprite(), *sprite))
+		{
+			return true;
+		}
+	}
+	return false;
+}

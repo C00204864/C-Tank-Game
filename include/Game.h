@@ -4,6 +4,7 @@
 #include "LevelLoader.h"
 #include "Tank.h"
 #include "KeyHandler.h"
+#include "CollisionDetector.h"
 
 /// <summary>
 /// @brief Main class for the SFML Playground project.
@@ -21,6 +22,13 @@ protected:
 	void render();
 	void processEvents();	
 	void processGameEvents(sf::Event&);
+
+	/// <summary>
+	///Current Work
+	/// </summary>
+	
+	void GenerateWalls();
+	bool CheckTankWallCollision();
 	
 	// main window
 	sf::RenderWindow m_window;
@@ -35,6 +43,8 @@ protected:
 
 	//Vector is like a list (c#)
 	std::vector<sf::Sprite> m_sprites;
+
+	std::vector<std::unique_ptr<sf::Sprite>> m_wallSprites;
 	
 	//KeyHandler Object
 	KeyHandler m_KeyHandler = KeyHandler();
