@@ -1,0 +1,34 @@
+background:
+   file: resources\images\menuback.png
+font:
+    file: resources\fonts\arial.ttf
+text:
+    - string: Play
+      positionx: 690.0
+      positiony: 250.0
+      boolstate: TRUE
+    - string: Levels
+      positionx: 680.0
+      positiony: 350.0
+      boolstate: FALSE
+    - string: Quit
+      positionx: 690.0
+      positiony: 450.0
+      boolstate: FALSE
+heading:
+  string: TANK BATTLER
+  positionx: 610.0
+  positiony: 100
+levelstext:
+    - string: Level 1
+      positionx: 690.0
+      positiony: 270.0
+      boolstate: TRUE
+    - string: Level 2
+      positionx: 690.0
+      positiony: 370.0
+      boolstate: FALSE
+    - string: Level 3
+      positionx: 690.0
+      positiony: 470.0
+      boolstate: FALSE

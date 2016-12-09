@@ -1,0 +1,148 @@
+background:
+   file: resources\images\bg.png
+tank:
+   position: {x: 700, y: 450}
+   max_projectiles: 10
+   reload_time: 1000  
+ai_tank:
+   position: {x: 100, y: 800}
+   max_projectiles: 10
+   reload_time: 1000  
+obstacles: 
+   - type: wall
+     position: {x: 200, y: 150}
+     rotation: 0
+   - type: wall
+     position: {x: 233, y: 150}
+     rotation: 0
+   - type: wall
+     position: {x: 266, y: 150}
+     rotation: 0
+   - type: wall
+     position: {x: 299, y: 150}
+     rotation: 0
+   - type: wall
+     position: {x: 332, y: 150}
+     rotation: 0
+   - type: wall
+     position: {x: 365, y: 150}
+     rotation: 0
+   - type: wall
+     position: {x: 398, y: 150}
+     rotation: 0
+   - type: wall
+     position: {x: 431, y: 150}
+     rotation: 0
+   - type: wall
+     position: {x: 464, y: 150}
+     rotation: 0
+   - type: wall
+     position: {x: 497, y: 150}
+     rotation: 0
+   - type: wall
+     position: {x: 530, y: 150}
+     rotation: 0
+   - type: wall
+     position: {x: 563, y: 150}
+     rotation: 0
+   - type: wall
+     position: {x: 500, y: 450}
+     rotation: 0
+   - type: wall
+     position: {x: 533, y: 450}
+     rotation: 0
+   - type: wall
+     position: {x: 566, y: 450}
+     rotation: 0
+   - type: wall
+     position: {x: 599, y: 450}
+     rotation: 0
+   - type: wall
+     position: {x: 632, y: 450}
+     rotation: 0
+   - type: wall
+     position: {x: 665, y: 450}
+     rotation: 0
+   - type: wall
+     position: {x: 698, y: 450}
+     rotation: 0
+   - type: wall
+     position: {x: 731, y: 450}
+     rotation: 0
+   - type: wall
+     position: {x: 764, y: 450}
+     rotation: 0
+   - type: wall
+     position: {x: 797, y: 450}
+     rotation: 0
+   - type: wall
+     position: {x: 830, y: 450}
+     rotation: 0
+   - type: wall
+     position: {x: 863, y: 450}
+     rotation: 0
+   - type: wall
+     position: {x: 800, y: 750}
+     rotation: 0
+   - type: wall
+     position: {x: 833, y: 750}
+     rotation: 0
+   - type: wall
+     position: {x: 866, y: 750}
+     rotation: 0
+   - type: wall
+     position: {x: 899, y: 750}
+     rotation: 0
+   - type: wall
+     position: {x: 932, y: 750}
+     rotation: 0
+   - type: wall
+     position: {x: 965, y: 750}
+     rotation: 0
+   - type: wall
+     position: {x: 998, y: 750}
+     rotation: 0
+   - type: wall
+     position: {x: 1031, y: 750}
+     rotation: 0
+   - type: wall
+     position: {x: 1064, y: 750}
+     rotation: 0
+   - type: wall
+     position: {x: 1097, y: 750}
+     rotation: 0
+   - type: wall
+     position: {x: 1130, y: 750}
+     rotation: 0
+   - type: wall
+     position: {x: 1163, y: 750}
+     rotation: 0
+targets:
+   - position: {x: 200, y: 300}
+     rotation: 45
+     duration: 10000
+     randomoffset: 50
+   - position: {x: 563, y: 300}
+     rotation: 45
+     duration: 20000
+     randomoffset: 50
+   - position: {x: 500, y: 600}
+     rotation: 0
+     duration: 30000
+     randomoffset: 50
+   - position: {x: 863, y: 600}
+     rotation: 45
+     duration: 40000
+     randomoffset: 50
+   - position: {x: 100, y: 450}
+     rotation: 60
+     duration: 50000
+     randomoffset: 50
+   - position: {x: 1300, y: 450}
+     rotation: 90
+     duration: 60000
+     randomoffset: 50
+targetfile:
+   filename: resources\images\car.png
+resettext:
+   string: " Score With Time Bonus\n \n            Press Enter To Play the Next Level\n      Press Escape to Return To the Main Menu"

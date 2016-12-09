@@ -1,0 +1,100 @@
+background:
+   file: resources\images\bg.png
+tank:
+   position: {x: 700, y: 450}
+   max_projectiles: 10
+   reload_time: 1000  
+ai_tank:
+   position: {x: 100, y: 800}
+   max_projectiles: 10
+   reload_time: 1000  
+obstacles: 
+   - type: wall
+     position: {x: 800, y: 400}
+     rotation: 90
+   - type: wall
+     position: {x: 800, y: 433}
+     rotation: 90
+   - type: wall
+     position: {x: 800, y: 466}
+     rotation: 90
+   - type: wall
+     position: {x: 800, y: 499}
+     rotation: 90
+   - type: wall
+     position: {x: 800, y: 532}
+     rotation: 90
+   - type: wall
+     position: {x: 600, y: 400}
+     rotation: 90
+   - type: wall
+     position: {x: 600, y: 433}
+     rotation: 90
+   - type: wall
+     position: {x: 600, y: 466}
+     rotation: 90
+   - type: wall
+     position: {x: 600, y: 499}
+     rotation: 90
+   - type: wall
+     position: {x: 600, y: 532}
+     rotation: 90
+   - type: wall
+     position: {x: 635, y: 562}
+     rotation: 0
+   - type: wall
+     position: {x: 668, y: 562}
+     rotation: 0
+   - type: wall
+     position: {x: 701, y: 562}
+     rotation: 0
+   - type: wall
+     position: {x: 734, y: 562}
+     rotation: 0
+   - type: wall
+     position: {x: 767, y: 562}
+     rotation: 0
+   - type: wall
+     position: {x: 635, y: 362}
+     rotation: 0
+   - type: wall
+     position: {x: 668, y: 362}
+     rotation: 0
+   - type: wall
+     position: {x: 701, y: 362}
+     rotation: 0
+   - type: wall
+     position: {x: 734, y: 362}
+     rotation: 0
+   - type: wall
+     position: {x: 767, y: 362}
+     rotation: 0
+targets:
+   - position: {x: 500, y: 300}
+     rotation: 45
+     duration: 10000
+     randomoffset: 40
+   - position: {x: 950, y: 632}
+     rotation: 0
+     duration: 20000
+     randomoffset: 40
+   - position: {x: 500, y: 632}
+     rotation: 90
+     duration: 30000
+     randomoffset: 40
+   - position: {x: 950, y: 300}
+     rotation: 45
+     duration: 40000
+     randomoffset: 40
+   - position: {x: 500, y: 466}
+     rotation: 0
+     duration: 50000
+     randomoffset: 40
+   - position: {x: 950, y: 466}
+     rotation: 90
+     duration: 60000
+     randomoffset: 40
+targetfile:
+   filename: resources\images\car.png
+resettext:
+   string: " Score With Time Bonus\n \n      Press Escape to Return To the Main Menu"

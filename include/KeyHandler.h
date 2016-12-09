@@ -42,4 +42,3 @@ private:
    typedef std::map<sf::Keyboard::Key, bool> KeyMap;
    KeyMap m_keyMap;
 };
-
